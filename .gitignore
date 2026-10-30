@@ -1,0 +1,11 @@
+api/config.php
+.env
+.env.*
+!.env.example
+
+# Local/editor and runtime files
+.vscode/
+*.log
+*.tmp
+Thumbs.db
+.DS_Store

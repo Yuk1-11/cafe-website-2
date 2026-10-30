@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【店員用】カフェ管理画面</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .login-box { max-width: 320px; margin: 80px auto; padding: 20px; background: #fff; border-radius: 8px; border: 1px solid #ccc; text-align: center; }
+        .login-box input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
+        .tab-btn { padding: 10px 16px; border: none; background: #eee; cursor: pointer; border-radius: 6px 6px 0 0; font-weight: bold; }
+        .tab-btn.active { background: #fff; border-bottom: 2px solid var(--primary); }
+    </style>
+</head>
+<body style="padding-bottom: 30px;">
+    <!-- ログインフォーム -->
+    <div id="login-section" class="login-box">
+        <h3>スタッフ合言葉入力</h3>
+        <input type="password" id="staff-pass" placeholder="合言葉を入力">
+        <button class="btn-primary" style="width: 100%;" onclick="login()">管理画面へ入る</button>
+    </div>
+
+    <!-- 管理メインエリア -->
+    <div id="admin-section" class="container" style="max-width: 850px; display: none;">
+        <header style="position: static; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+            <h2>🧇 スタッフ管理画面</h2>
+            <button onclick="logout()" style="padding: 6px 12px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer;">ログアウト</button>
+        </header>
+
+        <div>
+            <button class="tab-btn active" onclick="switchTab('orders')">注文一覧</button>
+            <button class="tab-btn" onclick="switchTab('stock')">在庫・売切管理</button>
+        </div>
+
+        <!-- 注文一覧タブ -->
+        <div id="tab-orders" style="background: #fff; padding: 16px; border-radius: 0 0 8px 8px; border: 1px solid #ddd;">
+            <h3>本日の注文（自動更新中）</h3>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>番号</th>
+                        <th>注文内容</th>
+                        <th>合計金額</th>
+                        <th>状況変更</th>
+                    </tr>
+                </thead>
+                <tbody id="order-rows">
+                    <tr><td colspan="4">読み込み中...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 在庫管理タブ -->
+        <div id="tab-stock" style="display: none; background: #fff; padding: 16px; border-radius: 0 0 8px 8px; border: 1px solid #ddd;">
+            <h3>商品・在庫管理</h3>
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>価格</th>
+                        <th>残り在庫数</th>
+                        <th>販売状態</th>
+                    </tr>
+                </thead>
+                <tbody id="stock-rows"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

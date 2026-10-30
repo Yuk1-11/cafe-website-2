@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文化祭カフェ - クロッフル注文</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🧇 文化祭カフェ クロッフル注文</h1>
+    </header>
+
+    <div class="container" id="menu-view">
+        <h2 style="font-size: 1.1rem; margin-bottom: 12px;">焼きたてクロッフル メニュー</h2>
+        <div class="menu-grid" id="menu-list">
+            <p>メニューを読み込み中...</p>
+        </div>
+    </div>
+
+    <!-- 注文完了・呼び出し状況画面 -->
+    <div class="container" id="status-view" style="display: none;">
+        <div class="status-card">
+            <p>ご注文ありがとうございました！</p>
+            <p style="font-size: 0.9rem; color: #777;">あなたの呼び出し番号</p>
+            <div class="order-number" id="disp-order-number">#---</div>
+            <div id="disp-badge" class="badge badge-preparing">準備中</div>
+            
+            <p id="status-message" style="margin-top: 15px; font-weight: bold;">
+                ただいま焼き上げています。画面を開いたままお待ちください。
+            </p>
+            <p style="font-size: 0.85rem; color: #888; margin-top: 10px;">
+                「お渡し可能」になったら受取カウンターへお越しください（後払い）。
+            </p>
+        </div>
+    </div>
+
+    <!-- カートバー -->
+    <div class="cart-bar" id="cart-bar">
+        <div>合計: <strong id="cart-total" style="font-size: 1.2rem; color: var(--primary-dark);">0</strong> 円</div>
+        <button class="btn-primary" id="btn-submit-order" disabled>注文を確定する</button>
+    </div>
+
+    <script src="js/order.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+:root {
+    --primary: #c47b3b;
+    --primary-dark: #995c26;
+    --bg-color: #fdfaf7;
+    --card-bg: #ffffff;
+    --text: #333333;
+    --text-muted: #777777;
+    --border: #e6dec5;
+    --ready-color: #e04f3f;
+    --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+body { background-color: var(--bg-color); color: var(--text); padding-bottom: 90px; }
+header { background: #fff; padding: 15px 20px; border-bottom: 2px solid var(--border); text-align: center; position: sticky; top: 0; z-index: 100; }
+header h1 { font-size: 1.25rem; color: var(--primary-dark); }
+
+.container { max-width: 600px; margin: 0 auto; padding: 16px; }
+
+/* 商品一覧 */
+.menu-grid { display: flex; flex-direction: column; gap: 14px; }
+.card { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.03); display: flex; justify-content: space-between; align-items: center; }
+.card.soldout { opacity: 0.55; }
+.product-info h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.product-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; }
+.product-price { font-weight: bold; color: var(--primary-dark); font-size: 1.05rem; }
+
+/* 数量ボタン */
+.btn-qty { background: #f0e6dd; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; color: var(--primary-dark); }
+.qty-display { min-width: 24px; text-align: center; font-weight: bold; }
+.qty-ctrl { display: flex; align-items: center; gap: 8px; }
+
+/* カートバー */
+.cart-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #ddd; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 -2px 10px rgba(0,0,0,0.05); }
+.btn-primary { background: var(--primary); color: #fff; border: none; padding: 12px 24px; border-radius: 25px; font-weight: bold; cursor: pointer; }
+.btn-primary:disabled { background: #ccc; cursor: not-allowed; }
+
+/* 状況表示モーダル/カード */
+.status-card { text-align: center; padding: 30px 20px; background: #fff; border-radius: var(--radius); border: 2px dashed var(--border); margin-top: 20px; }
+.order-number { font-size: 2.8rem; font-weight: 800; color: var(--primary-dark); margin: 10px 0; }
+.badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-weight: bold; font-size: 1rem; }
+.badge-preparing { background: #fff3cd; color: #856404; }
+.badge-ready { background: #f8d7da; color: #721c24; animation: blink 1s infinite alternate; font-size: 1.2rem; }
+.badge-completed { background: #d4edda; color: #155724; }
+@keyframes blink { 0% { opacity: 0.8; } 100% { opacity: 1; transform: scale(1.05); } }
+
+/* 管理画面 */
+.admin-table { width: 100%; border-collapse: collapse; margin-top: 15px; background: #fff; }
+.admin-table th, .admin-table td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+.admin-table th { background: #f4ede4; }
+.select-status { padding: 6px 10px; border-radius: 6px; font-weight: bold; }
